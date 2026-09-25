@@ -1,0 +1,27 @@
+name: Test formula
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Homebrew/actions/setup-homebrew@master
+      - name: Load this checkout
+        run: brew tap tommica/tap "$GITHUB_WORKSPACE"
+      - run: brew style tommica/tap/difly
+      - run: brew audit --strict tommica/tap/difly
+      - run: brew install --build-from-source tommica/tap/difly
+      - run: brew test tommica/tap/difly
