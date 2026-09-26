@@ -1,8 +1,8 @@
 class Difly < Formula
   desc "Git commit and merge GUI with editable diffs and hunk selection"
   homepage "https://github.com/tommica/difly"
-  url "https://github.com/tommica/difly/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "e9b569943a3c33b8564c3957f67cd7d130c7eee6c4aaaf0ba193efcb2b94d73d"
+  url "https://github.com/tommica/difly/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "ef36407a40e39c9a189a40fcc79eec19b75f848d7d4d45ed2317cd2f40bbe2d3"
   license "MIT"
 
   depends_on "rust" => :build
