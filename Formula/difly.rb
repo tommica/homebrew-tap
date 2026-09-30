@@ -1,8 +1,8 @@
 class Difly < Formula
   desc "Git commit and merge GUI with editable diffs and hunk selection"
   homepage "https://github.com/tommica/difly"
-  url "https://github.com/tommica/difly/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "ef36407a40e39c9a189a40fcc79eec19b75f848d7d4d45ed2317cd2f40bbe2d3"
+  url "https://github.com/tommica/difly/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "fe05912a293939639bb180dce50847c07dd8517bf540e0071ae4e6b5bf1bd5d1"
   license "MIT"
 
   depends_on "rust" => :build
@@ -21,7 +21,7 @@ class Difly < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    (pkgshare/"licenses").install "assets/fonts/OFL.txt" => "JetBrainsMono-OFL.txt"
+    (pkgshare/"licenses").install "assets/fonts/ComicMono-LICENSE.txt"
   end
 
   test do
